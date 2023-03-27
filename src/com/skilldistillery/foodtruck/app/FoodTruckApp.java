@@ -42,7 +42,6 @@ public class FoodTruckApp {
 	public void addTruck() {
 
 		fleet = new FoodTruck[MAX_TRUCKS];
-
 		do {
 			Scanner kb = new Scanner(System.in);
 			System.out.println(
@@ -55,8 +54,9 @@ public class FoodTruckApp {
 			}
 			System.out.println("Enter the type of food from the food truck");
 			String ft = kb.nextLine();
-			System.out.println("rate the food truck 1-5");
+			System.out.println("Rate the food truck 1-5");
 			int nr = kb.nextInt();
+
 			fleet[truckCount] = new FoodTruck(nm, ft, nr);
 			truckCount++;
 			if (truckCount == MAX_TRUCKS) {
@@ -67,7 +67,13 @@ public class FoodTruckApp {
 		} while (truckCount < MAX_TRUCKS);
 	}
 
+	public void highestTruck() {
+		selectHighest();
+
+	}
+
 	public void selectHighest() {
+
 		FoodTruck highTruck = new FoodTruck();
 
 		for (FoodTruck truck : fleet) {
@@ -80,7 +86,6 @@ public class FoodTruckApp {
 			}
 		}
 		System.out.println(highTruck);
-
 	}
 
 	public void calcAvg() {
